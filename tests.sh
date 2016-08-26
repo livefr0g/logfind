@@ -1,7 +1,4 @@
-./logfind h Makefile
+./logfind MAX file_ptr
 echo " "
-./logfind Makefile h
+./logfind file_ptr MAX
 echo " "
-./logfind h Makefile c
-echo " "
-./logfind h Makefile asdf c

@@ -25,7 +25,7 @@ char **get_logfile(char *filename)
 		check_mem(file_list[n]);
 		fgets(file_list[n], MAX_LINE-1, file_ptr);
 		strtok(file_list[n], "\n");
-		log_info("Token %d: %s", n, file_list[n]);
+		log_info("\tToken %d: %s", n, file_list[n]);
 
 		if(feof(file_ptr)) break;
 		n++;
@@ -48,7 +48,7 @@ void token_find(FILE *file_ptr, char *filename, char *token)
 		fgets(buffer, MAX_LINE-1, file_ptr);
 		if(strstr(buffer, token) != NULL)
 		{
-			log_info("FOUND TOKEN '%s' in file '%s'", token, filename);
+			log_info("\tFOUND TOKEN '%s' in file '%s'", token, filename);
 			break; // done
 		}
 
@@ -86,13 +86,14 @@ int main(int argc, char *argv[])
 	char **token_list = malloc(sizeof(char) * MAX_LINE * MAX_TOKEN);
 	int n = 0;
 
-	for(int i = 1; i < argc; i++) {
-		token_list[n] = argv[i];
-		n++;
+	for(n = 0; n < argc - 1; n++) {
+		token_list[n] = argv[n+1];
 	}
+
 	search_file(filename, token_list, n);
 	check(get_logfile(LOG_FILE), "logfile error.");
 
+	free(token_list);
 	return 0;
 
 error:
