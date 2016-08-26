@@ -1,7 +1,7 @@
-./logfind .logfind h Makefile
+./logfind h Makefile
 echo " "
-./logfind .logfind Makefile h
+./logfind Makefile h
 echo " "
-./logfind .logfind h Makefile c
+./logfind h Makefile c
 echo " "
-./logfind .logfind h Makefile asdf c
+./logfind h Makefile asdf c
