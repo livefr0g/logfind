@@ -82,7 +82,7 @@ int main(int argc, char *argv[])
 {
 	check(argc > 1, "Need an argument.");
 
-	char *filename = "logfind.c";
+	// char *filename = "logfind.c";
 	char **token_list = malloc(sizeof(char) * MAX_LINE * MAX_TOKEN);
 	int n = 0;
 
@@ -90,8 +90,10 @@ int main(int argc, char *argv[])
 		token_list[n] = argv[n+1];
 	}
 
-	search_file(filename, token_list, n);
 	check(get_logfile(LOG_FILE), "logfile error.");
+	search_file("logfind.c", token_list, n);
+	search_file("dbg.h", token_list, n);
+	search_file("Makefile", token_list, n);
 
 	free(token_list);
 	return 0;
