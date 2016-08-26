@@ -1,6 +1,6 @@
 CFLAGS=-Wall -g
 
-all: logfind #tests
+all: logfind tests
 
 #logfind:
 
